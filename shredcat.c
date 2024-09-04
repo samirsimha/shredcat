@@ -71,28 +71,6 @@ int main(int argc, char *argv[])
 
     if (argc == 3)
     {
-        if (strcmp(argv[1], "-e") == 0)
-        {
-            FILE *f = fopen(argv[2], "rb+");
-            if (f == NULL)
-            {
-                perror("file could not be opened");
-                return (1);
-            }
-            fseek(f, 0, SEEK_END);
-            long size = ftell(f);
-            if (size > 0)
-            {
-                encrypt(f, size);
-                printf("file encrypted");
-            }
-            else
-            {
-                printf("file is empty, nothing to encrypt\n");
-                fclose(f);
-            }
-        }
-
         if (strcmp(argv[1], "-s") == 0)
         {
             FILE *f = fopen(argv[2], "rb+");
